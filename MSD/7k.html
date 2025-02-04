@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7k</title>
+</head>
+<body>
+    <button onclick="showCart()">Show cart</button>
+    <button onclick="updateCartQuantity(1)">Add to cart</button>
+    <button onclick="updateCartQuantity(2)">+2</button>
+    <button onclick="updateCartQuantity(3)">+3</button>
+    <button onclick="updateCartQuantity(4)">+4</button>
+    <button onclick="updateCartQuantity(5)">+5</button>
+    <button onclick="removeFromCart(1)">Remove from cart</button>
+    <button onclick="removeFromCart(2)">-2</button>
+    <button onclick="removeFromCart(3)">-3</button>
+    <p id="display">
+
+    </p>
+
+    <script>
+        let cartQuantity = 0;
+        const cartLimit = 10;
+         let div=document.getElementById('display');
+        function updateCartQuantity(quantity) {
+            if (cartQuantity + quantity > cartLimit) {
+                div.innerHTML=('The cart is full');
+            } else {
+                cartQuantity += quantity;
+                div.innerHTML=('Adding');
+            }
+        }
+
+        function removeFromCart(quantity) {
+            if (cartQuantity - quantity < 0) {
+                div.innerHTML=('Not enough items in the cart');
+            } else {
+                cartQuantity -= quantity;
+                div.innerHTML=('Removed..');
+            }
+        }
+
+        function showCart() {
+            div.innerHTML=`Cart Quantity: ${cartQuantity}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvertLength</title>
+</head>
+<body>
+    <script>
+        let res=0;
+        function convertLength(length,from,to){
+            if(from=='miles' && to=='km'){
+                 res=length*1.6;
+            }
+            else if(from=='km' && to=='miles'){
+               res=length/1.6;
+            }
+            else{
+res=length;
+            }
+            return `${res} ${to}`;
+        }
+        call=convertLength(5,'miles','km');
+        alert(call)
+    </script>
+</body>
+</html>
