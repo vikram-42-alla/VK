@@ -1,25 +1,48 @@
-const input=document.getElementById('message');
-const button=document.querySelector('.button-send');
+const input = document.getElementById("message");
+const button = document.querySelector(".button-send");
+const container = document.querySelector(".msg-box");
+const buttondel=document.querySelector('.button-delete');
+const chatbox=document.querySelector('.chat-box')
+button.addEventListener("click", async () => {
+    const userInput = input.value.trim();
+    if (!userInput) return;
 
-const container=document.querySelector('.msg-box');
+    const userMessage = document.createElement("p");
+    userMessage.innerHTML = `<b>${userInput}</b>`;
+    userMessage.classList.add("para");
+    container.appendChild(userMessage);
+    container.scrollTop = container.scrollHeight;
 
-let arr=["Hii","Hello","How can i help you?"];
-button.addEventListener('click',()=>{
-   const paragraph=document.createElement('p');
-   paragraph.innerHTML=`<b>${input.value}</b>`;
-   paragraph.classList.add('para');
-   container.appendChild(paragraph);
+    input.value = "";
 
-   input.value='';
-   container.scrollTop = container.scrollHeight;
-   const paragraphreply=document.createElement('p');
-   paragraphreply.classList.add('para1');
-   setTimeout(()=>{
-    let randomIndex=Math.floor(Math.random()*3);
-    console.log(randomIndex)
-    paragraphreply.innerHTML=`<b>${arr[randomIndex]}</b>`;
-        container.appendChild(paragraphreply);
-        container.scrollTop = container.scrollHeight;
-   },1000)
-  
+    const botReply = document.createElement("p");
+    botReply.classList.add("para1");
+    botReply.innerHTML = `<b>...</b>`;
+    container.appendChild(botReply);
+    container.scrollTop = container.scrollHeight;
+
+    try {
+        const response = await fetch("http://localhost:5000/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: userInput }),
+        });
+
+        if (!response.ok) throw new Error("AI did not respond");
+
+        const data = await response.json();
+      setTimeout(  botReply.innerHTML = `<b>${data.response}</b>`,1000);
+    } catch (error) {
+        botReply.innerHTML = `<b>AI not responded</b>`;
+    }
+
+    container.scrollTop = container.scrollHeight;
+});
+   
+
+input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") button.click();
+});
+buttondel.addEventListener("click",()=>{
+container.textContent='';
 })
