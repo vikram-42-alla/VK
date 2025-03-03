@@ -4,21 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="chaticon.png">
+    <link rel="stylesheet" href="style.css">
     <title>Chat App</title>
+    
+</head>
 <body>
+    <div class="main-body">
+    <div class="head-container">
+    <div class="headings">
+        <img src="chatbot.png" alt=""><h3>Chat Bot</h3>
+    </div>
+</div>
     <div class="main-container">
+        
         <div class="chat-box">
-            <div class="msg-box"></div>
+            <div class="msg-box">
+                
+
+            </div>
             <div class="inputs">
                 <input type="text" placeholder="Send a message" id="message">
-                <button class="button-send" >Send</button>
+                
+                    <button class="button-send"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4 10H10V22H14V10H20L12 2Z" fill="currentColor"/>
+                      </svg>
+                      <div class="toggle">Send</div>
+                    </button>
+                    
+                    <button class="button-delete">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V6H19Z" 
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <div class="toggle-del">
+                            Clear Chat
+                          </div>
+                    </button>
+                
             </div>
            
         </div>
     </div>
-    
-       
-    
+</div>
     <script src="script.js">
     </script>
 </body>
