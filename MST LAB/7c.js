@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const noteSchema = require('./notes'); 
 const app = express();
-mongoose.connect('mongodb+srv://Vikramdb:Vikram1636@cluster0.unuid.mongodb.net/', {
+mongoose.connect('your mongodb connection string', {
  useNewUrlParser: true,
  useUnifiedTopology: true
 }).then(() => console.log('Connected to MongoDB'))
