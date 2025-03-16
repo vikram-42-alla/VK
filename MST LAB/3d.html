@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticket Booking</title>
+</head>
+<body>
+    <h1>Theatre Drame</h1>
+   Enter the number of seats to book <input type="text" id="input">
+   <button id="book" onclick="bookTickets()">Book Tickets</button>
+    <p id="p1">Your Ticket Details</p>
+    <p id="details"></p>
+    <p id="p2"></p>
+    <script>
+        function bookTickets(){
+            const seatesBook=parseInt(document.getElementById('input').value);
+            let ticketPrice=9;
+            let discount=0;
+            let totalPrice=0,disPrice=0;
+            let str='';
+            let display=document.getElementById('details');
+
+            if(seatesBook<=2){
+                totalPrice=seatesBook*ticketPrice;
+        display.innerHTML=`For ${seatesBook} tickets, you need to pay: $${totalPrice}`;
+            }else if(seatesBook>=5){
+                display.innerHTML=`Booking is not allowed`;
+            }else if(seatesBook>2 && seatesBook<5){
+                for(let i=1;i<=seatesBook;i++){
+                    discount=5+(i-1)*2;
+                    disPrice=ticketPrice*(1-discount/100)
+                    totalPrice+=disPrice;
+                    str+=`Ticket for Customer ${i} gets ${discount}!, Cost is: ${totalPrice.toFixed(2)}! <br>
+                    `;
+                }
+                const pt=seatesBook*ticketPrice;
+               
+                str+=`
+                For ${seatesBook} tickets, you need to pay:$${totalPrice} instead of $${pt.toFixed(2)}.`;
+            }
+            display.innerHTML=str;
+        }
+    </script>
+</body>
+</html>

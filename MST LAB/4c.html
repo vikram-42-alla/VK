@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Event Handling in Booking</title></head>
+<body>
+ <h2>Movie Ticket Booking</h2>
+ <label for="seatsInput">Number of Seats:</label>
+ <input type="number" id="seatsInput" value="1" min="1" max="5">
+ <button onclick="showBookingPrice()">Calculate Price</button>
+ <div id="bookingPriceResult"></div>
+ <script>
+ function calculateTicketPrice(seats) { // Function from Experiment 4.a
+ let costPerTicket;
+ if (seats <= 2) {
+ costPerTicket = 150;
+ } else if (seats >= 6) {
+ return "Booking not allowed for more than 5 seats.";
+ } else {
+ costPerTicket = 180;
+ }
+ return seats * costPerTicket;
+ }
+ function showBookingPrice() {
+
+ let seats = document.getElementById('seatsInput').value;
+ let priceResult = calculateTicketPrice(seats);
+ let message = typeof priceResult === 'string' ? priceResult : `Total Price: Rs.
+${priceResult}`;
+ document.getElementById('bookingPriceResult').textContent = message;
+ }
+ </script>
+</body>
+</html>

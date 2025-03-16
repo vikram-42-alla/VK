@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticket Booking</title>
+</head>
+<body>
+    <h1>Theatre Drame</h1>
+   Enter the number of seats to book <input type="text" id="input">
+   <button id="book" onclick="bookTickets()">Book Tickets</button>
+    <p id="p1">Your Ticket Details</p>
+    <p id="details"></p>
+    <p id="p2"></p>
+    <script>
+        function bookTickets(){
+            const seatesBook=parseInt(document.getElementById('input').value);
+            let ticketPrice=9;
+            let discount=0;
+            let totalPrice=0,disPrice=0;
+            let str='';
+            let res=0;
+            let display=document.getElementById('details');
+
+            if(seatesBook<=2){
+                totalPrice=seatesBook*ticketPrice;
+        display.innerHTML=`For ${seatesBook} tickets, you need to pay: $${totalPrice}`;
+            }else if(seatesBook>=6){
+                display.innerHTML=`Booking is not allowed`;
+            }else if(seatesBook>2 && seatesBook<5){
+                
+                const pt=seatesBook*ticketPrice;
+               str+=`Using For Loop:<br><br>`;
+                str+=calculateWithFor(seatesBook);
+                str+=`<br> <br>Using While Loop:<br>`;
+                str+=calculateWithWhile(seatesBook);
+                str+=`<br> <br> Using Do While Loop:<br>`;
+                str+=calculateWithdoWhile(seatesBook);
+            }
+            display.innerHTML=str;
+           
+        }
+        function calculateWithFor(seatsBook){
+            var str='';
+            let ticketPrice=9;
+            let discount=0,pt=seatsBook*ticketPrice;
+let disPrice=0,totalPrice=0;
+            for(let i=1;i<=seatsBook;i++){
+
+                    discount=5+(i-1)*2;
+                    disPrice=ticketPrice*(1-discount/100)
+                    totalPrice+=disPrice;
+                    str+=`Ticket for Customer ${i} gets ${discount}!, Cost is: ${totalPrice.toFixed(2)}! <br>
+                    `;
+                }
+                str+=`
+                For ${seatsBook} tickets, you need to pay:$${totalPrice} instead of $${pt.toFixed(2)}.`;
+                return str;
+        }
+        function calculateWithWhile(seatsBook){
+            var str='';
+            let ticketPrice=9;
+            let discount=0,pt=seatsBook*ticketPrice;
+let disPrice=0,totalPrice=0;
+i=1;
+            while(i<=seatsBook){
+
+                    discount=5+(i-1)*2;
+                    disPrice=ticketPrice*(1-discount/100)
+                    totalPrice+=disPrice;
+                    str+=`Ticket for Customer ${i} gets ${discount}!, Cost is: ${totalPrice.toFixed(2)}! <br>
+                    `;
+                    i++;
+                }
+                str+=`
+                For ${seatsBook} tickets, you need to pay:$${totalPrice} instead of $${pt.toFixed(2)}.`;
+                return str;
+            }
+            function calculateWithdoWhile(seatsBook){
+            var str='';
+            let ticketPrice=9;
+            let discount=0,pt=seatsBook*ticketPrice;
+           let disPrice=0,totalPrice=0;
+            i=1;
+            do{
+
+                    discount=5+(i-1)*2;
+                    disPrice=ticketPrice*(1-discount/100)
+                    totalPrice+=disPrice;
+                    str+=`Ticket for Customer ${i} gets ${discount}!, Cost is: ${totalPrice.toFixed(2)}! <br>
+                    `;
+                    i++;
+                }while(i<=seatsBook)
+                str+=`
+                For ${seatsBook} tickets, you need to pay:$${totalPrice} instead of $${pt.toFixed(2)}.`;
+                return str;
+            }
+    </script>
+</body>
+</html>

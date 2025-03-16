@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Events Example</title>
+    </head>
+<body>
+    <h2 id="heading">Cone Empty</h2>
+    <div id="cone"></div>
+    <img src="Empty.jpg" width="100px" height="100px" id="image">
+    <p id="message">Click the button to fill the cone.</p>
+    <button id="coneButton">Fill Cone</button>
+    <script>
+    let coneElement = document.getElementById('cone');
+    let headingElement = document.getElementById('heading');
+    let messageElement = document.getElementById('message');
+    let buttonElement = document.getElementById('coneButton');
+    let isFilled = false;
+   let image=document.getElementById('image');
+    buttonElement.addEventListener('click', function() {
+    isFilled = !isFilled;
+    if (isFilled) {
+    coneElement.classList.add('refilled');
+    coneElement.classList.remove('empty');
+    headingElement.textContent = "Cone Refilled!";
+    messageElement.textContent = "Cone is now full.";
+    image.src="Filledcone.jpg";
+    document.body.style.backgroundColor = "#lightgreen";
+    buttonElement.textContent = "Empty Cone";
+    } else {
+    coneElement.classList.remove('refilled');
+    coneElement.classList.add('empty');
+    coneElement.style.backgroundColor = "white"; 
+    headingElement.textContent = "Cone Empty";
+    image.src="Empty.jpg";
+    messageElement.textContent = "Click the button to fill the cone.";
+    document.body.style.backgroundColor = "white"; 
+    buttonElement.textContent = "Fill Cone";
+    }
+    });
+    </script>
+   </body>
+   </html>

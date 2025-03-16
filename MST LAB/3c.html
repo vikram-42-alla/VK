@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Ticket Booking</title>
+    
+</head>
+<body>
+    <h1>Theatre Drama</h1>
+    <input type="text" id="input" placeholder="Enter no. tickets">
+    <button onclick="book()" id="button">Book</button>
+    <p id="p1">Your Ticket Details :</p>
+    <p id="details"></p>
+    <script>
+        function book(){
+        const ticketPrice=9;
+        const discount=0.1;//10%
+        const ticket=parseInt(document.getElementById('input').value);
+        const price=ticketPrice*ticket;
+        const discountprice=price*discount;
+        const totalCost=price-discountprice;
+        const display=document.getElementById('details');
+        display.innerHTML=`Total number of seats booked : ${ticket} <br>
+        Total cost of ${ticket} tickets :$${price}<br>
+        Festive season discount is : 10% <br>
+        Total cost after discount is :$${totalCost}`;
+        }
+    </script>
+</body>
+</html>

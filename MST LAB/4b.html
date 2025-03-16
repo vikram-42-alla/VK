@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>Classes and Inheritance</title></head>
+<body>
+ <div id="classOutput"></div>
+ <script>
+ class Person {
+ constructor(name, age) {
+ this.name = name;
+ this.age = age;
+ }
+ toString() {
+ return `Name: ${this.name}, Age: ${this.age}`;
+ }
+
+ }
+ class Employee extends Person {
+ constructor(name, age, role) {
+ super(name, age); // Call Person constructor
+ this.role = role;
+ }
+ toString() {
+ return `${super.toString()}, Role: ${this.role}`;
+ }
+ }
+ let person1 = new Person("John Doe", 30);
+ let employee1 = new Employee("Jane Smith", 25, "Developer");
+ let output = `<h2>Class Examples</h2>
+ <p>Person Details: ${person1.toString()}</p>
+ <p>Employee Details: ${employee1.toString()}</p>`;
+ document.getElementById('classOutput').innerHTML = output;
+ console.log(output);
+ </script>
+</body>
+</html>

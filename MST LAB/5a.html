@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+</head>
+<body>
+    <div id="movielist">
+
+    </div>
+    <script>
+        let movies=[
+            {
+                name:"Bahubali 2",
+                starring:"Prabhas,Rana",
+                language:"Telugu",
+                ratings:4.6
+            },
+            {
+                 name:"Mission Impossible",
+                 starring:"Tom cruise",
+                 language:"English",
+                 ratings:4.7
+            }
+           
+        ]
+        let movielist=`<h1>Movie List</h1> <ul>`;
+            
+           movies.forEach((movie)=>{
+            const{name,starring,language,ratings}=movies;
+            movielist+=`<li><b>Movie Name:</b>${movie.name}</li>
+                <li><b>Starring:</b>${movie.starring}</li>
+                    <li><b>Language:</b>${movie.language}</li>
+                        <li><b>Ratings:</b>${movie.ratings}</li>
+                        <br>
+                `;
+        })
+        movielist+=`</ul>`;
+        document.getElementById('movielist').innerHTML=movielist;
+    </script>
+</body>
+</html>

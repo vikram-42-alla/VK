@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Details</title>
+</head>
+<body>
+    <h1>Stock Price Simulator</h1>
+    <div id="pricechange">Current Price $100</div>
+    <script>
+        let currentPrice=100;
+        let displayprice=document.getElementById('pricechange');
+        let updateCount=0;
+        let maxCount=10;
+        function getRandomPriceChange(){
+            let priceCharge=Math.floor((Math.random()*10))-5;
+        return priceCharge;
+        }
+        let intervalid=setInterval(()=>{
+            currentPrice+=getRandomPriceChange();
+
+displayprice.textContent=`Current Price $${currentPrice}`;
+updateCount++;
+if(updateCount>=maxCount){
+    clearInterval(intervalid);
+}
+        },3000)
+       
+    </script>
+</body>
+</html>
