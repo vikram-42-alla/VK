@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3finish</title>
+</head>
+<body>
+   <script>
+    // New quantities
+    basketballPrice=20.95;
+    tshirtPrice=7.99;
+basketballQuantity = 1;
+tshirtQuantity = 1;
+shippingTotal = 0; // Free shipping
+
+// Recalculate
+basketballTotal = basketballPrice * basketballQuantity;
+tshirtTotal = tshirtPrice * tshirtQuantity;
+itemsTotal = basketballTotal + tshirtTotal;
+totalBeforeTax = itemsTotal + shippingTotal;
+estimatedTax = Math.round(totalBeforeTax * 0.1 * 100) / 100;
+orderTotal = totalBeforeTax + estimatedTax;
+
+// Updated display
+firstLine = `Items (${basketballQuantity + tshirtQuantity}): $${itemsTotal.toFixed(2)}`;
+secondLine = `Shipping & handling: $${shippingTotal.toFixed(2)}`;
+thirdLine = `Total before tax: $${totalBeforeTax.toFixed(2)}`;
+fourthLine = `Estimated tax (10%): $${estimatedTax.toFixed(2)}`;
+finalLine = `Order total: $${orderTotal.toFixed(2)}`;
+
+fullMessage = `${firstLine}\n${secondLine}\n${thirdLine}\n${fourthLine}\n${finalLine}`;
+alert(fullMessage);
+
+   </script>
+</body>
+</html>

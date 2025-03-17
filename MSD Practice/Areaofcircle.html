@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Circle</title>
+</head>
+<body>
+    <script>
+        console.log('--- Example with let ---');
+        let radius=4;
+        console.log('Initial radius : '+radius);
+        try{
+            let radius=9;
+            console.log("This line won't execute due to SyntaxError");
+
+        }catch(error){
+            console.log("Error : ",error.message);
+        }
+        radius=8;
+        console.log('After reassignment : '+radius);
+        console.log('--- Example with var ---');
+        var radiu=4;
+        console.log('Initial radius : '+radiu);
+        var circleRadius=5;
+        console.log('After redeclaration : '+circleRadius);
+      circleRadius=7;
+      console.log('After reassignment : '+circleRadius);
+      console.log('--- Example with const ---');
+      const pi=3.14159;
+      console.log('Initial pi value : '+pi);
+      try{
+        const pi=3.14;
+        console.log("This line won't execute due to SyntaxError");
+
+}catch(error){
+    console.log("Error : ",error.message);
+}const area=pi*circleRadius*circleRadius;
+      console.log('Final calculation : ');
+
+      console.log(`Area of circle with radius ${circleRadius} is : ${area}`);
+</script>
+</body>
+</html>

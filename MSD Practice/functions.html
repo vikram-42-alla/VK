@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details</title>
+</head>
+<body>
+    <input type="text" id="seats" placeholder="Enter number of seats">
+    <button id="cal">Calculate</button>
+    <p id="details"></p>
+
+    <script>
+        document.getElementById('cal').addEventListener('click', () => {
+            const calculateDiscount = (seatNumber) => 5 + (seatNumber - 1) * 2;
+            
+            const calculateCost = () => {
+                const seats = parseInt(document.getElementById('seats').value);
+                const ticketPrice = 9;
+                let totalPrice = 0;
+                let str = '';
+                let display = document.getElementById('details');
+
+                if (isNaN(seats) || seats <= 0) {
+                    display.innerHTML = "Please enter a valid number of seats.";
+                    return;
+                }
+
+                if (seats <= 2) {
+                    totalPrice = seats * ticketPrice;
+                    display.innerHTML = `For ${seats} tickets, you need to pay: $${totalPrice.toFixed(2)}`;
+                } else if (seats >= 5) {
+                    display.innerHTML = "Booking is not allowed for 5 or more seats.";
+                } else {
+                    for (let i = 1; i <= seats; i++) {
+                        let discount = calculateDiscount(i);
+                        let discountedPrice = ticketPrice * (1 - discount / 100);
+                        totalPrice += discountedPrice;
+                        str += `Ticket for Customer ${i} gets ${discount}% discount! Cost: $${discountedPrice.toFixed(2)} <br>`;
+                    }
+                    str += `<strong>Total Price: $${totalPrice.toFixed(2)}</strong>`;
+                    display.innerHTML = str;
+                }
+            };
+
+            calculateCost();
+        });
+    </script>
+</body>
+</html>

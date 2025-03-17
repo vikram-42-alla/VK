@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML/CSS Quiz</title>
+</head>
+<body>
+    <h1>HTML/CSS Quiz</h1>
+    <section>
+        <h2>Student Info</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob"><br><br>
+        </form>
+    </section>
+
+    <section>
+        <h2>HTML</h2>
+        <p>Question #1</p>
+        <p>The legend element represents a caption for the content of its parent fieldset element</p>
+        <form>
+            <input type="radio" id="true1" name="q1" value="true">
+            <label for="true1">True</label><br>
+            <input type="radio" id="false1" name="q1" value="false">
+            <label for="false1">False</label><br><br>
+        </form>
+        
+        <p>Question #2</p>
+        <p>A label element nesting an input element is required to have a for attribute with the same value as the input's id</p>
+        <form>
+            <input type="radio" id="true2" name="q2" value="true">
+            <label for="true2">True</label><br>
+            <input type="radio" id="false2" name="q2" value="false">
+            <label for="false2">False</label><br><br>
+        </form>
+    </section>
+
+    <section>
+        <h2>CSS</h2>
+        <p>Can the CSS margin property accept negative values?</p>
+        <form>
+            <select>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+            
+            <label for="questions">Do you have any questions?</label><br>
+            <textarea id="questions" name="questions"></textarea><br><br>
+            
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>freeCodeCamp</p>
+        <p>San Francisco, California, USA</p>
+    </footer>
+</body>
+</html>

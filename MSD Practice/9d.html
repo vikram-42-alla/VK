@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button class="submit" onclick="display()">Submit</button>
+    <p class="para"></p>
+    <script>
+        
+        function display(){
+            let disp=document.getElementById('input').value;
+            const val=document.querySelector('.para');
+            val.innerHTML=`Your name is : ${disp}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8j</title>
+</head>
+<body>
+    <button onclick="guessing('heads')">Heads</button>
+    <button onclick="guessing('tails')">Tails</button>   
+    <script>
+        let num=Math.random().toFixed(1);
+        let res='';
+        let scores={win:0,lose:0};
+        console.log(num);
+        if(num<0.5){
+            
+             res='heads';
+        }else{
+           
+            res='tails';
+        }
+        function guessing(guess){
+        if(guess==res){
+            alert("You win!");
+            scores.win++;
+        }else{
+            alert("You lose!");
+            scores.lose++;
+        }
+        console.log(`Your score `);
+        for(let key in scores){
+            console.log(`${key} : ${scores[key]}`);
+        }
+    }
+    </script>
+</body>
+</html>
